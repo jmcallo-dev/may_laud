@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:may_laud/user_login/otp_verification.dart';
 import 'package:may_laud/user_login/password_field.dart';
 import 'package:may_laud/user_login/verification.dart'; // adjust if needed
 
@@ -436,7 +437,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => const VerificationScreen(),
+                      builder: (_) => const OtpVerificationScreen(),
                     ),
                   );
                 },
