@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:may_laud/user_login/otp_verification.dart';
 import 'package:may_laud/user_login/password_field.dart';
-import 'package:may_laud/user_login/verification.dart'; // adjust if needed
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});

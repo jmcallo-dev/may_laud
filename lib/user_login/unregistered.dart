@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:may_laud/user_login/home.dart';
 import 'package:may_laud/user_login/login_number.dart';
 import 'package:may_laud/user_login/register.dart';
-import 'package:may_laud/user_login/welcome_back.dart';
 
 void main() {
   runApp(const MyApp());
