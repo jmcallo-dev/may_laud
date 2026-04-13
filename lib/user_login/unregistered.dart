@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:may_laud/user_login/home.dart';
+import 'package:may_laud/user_login/register.dart';
+import 'package:may_laud/user_login/welcome_back.dart';
 
 void main() {
   runApp(const MyApp());
@@ -106,7 +108,7 @@ class AccountNotFoundScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const VerificationScreen(),
+                        builder: (context) => const RegisterScreen(),
                       ),
                     );
                   },
@@ -127,7 +129,14 @@ class AccountNotFoundScreen extends StatelessWidget {
                     ),
                     side: const BorderSide(color: Color(0xFFD1C4E9)),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const WelcomeBackScreen(),
+                      ),
+                    );
+                  },
                   child: const Text(
                     "Try a Different Number",
                     style: TextStyle(color: Color(0xFF6A1B9A)),
