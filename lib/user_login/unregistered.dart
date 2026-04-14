@@ -127,7 +127,7 @@ class AccountNotFoundScreen extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
-                    side: const BorderSide(color: Color(0xFF6A1B9A)),
+                    backgroundColor: const Color(0xFF6A1B9A),
                   ),
                   onPressed: () {
                     Navigator.push(
@@ -139,7 +139,9 @@ class AccountNotFoundScreen extends StatelessWidget {
                   },
                   child: const Text(
                     "Try a Different Number",
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
