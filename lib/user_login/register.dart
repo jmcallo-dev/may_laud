@@ -436,7 +436,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => const VerifiedSuccessScreen(),
+                      builder: (_) => const VerificationScreen(),
                     ),
                   );
                 },
