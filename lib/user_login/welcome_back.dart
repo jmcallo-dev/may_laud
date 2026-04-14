@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:may_laud/user_login/forgot_password.dart';
+import 'home.dart';
 
 /// ---------------- SUCCESS SCREEN (WELCOME BACK DESIGN) ----------------
 class WelcomeBackScreen extends StatefulWidget {
@@ -164,22 +165,33 @@ class _WelcomeBackScreenState extends State<WelcomeBackScreen> {
                       ],
                     ),
                     const SizedBox(height: 20),
-                    Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.symmetric(vertical: 16),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(40),
-                        gradient: const LinearGradient(
-                          colors: [Color(0xFF4C229C), Color(0xFF643EB5)],
+                    const SizedBox(height: 20),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const HomeDashboard(),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.symmetric(vertical: 16),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(40),
+                          gradient: const LinearGradient(
+                            colors: [Color(0xFF4C229C), Color(0xFF643EB5)],
+                          ),
                         ),
-                      ),
-                      child: const Center(
-                        child: Text(
-                          "Sign In →",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
+                        child: const Center(
+                          child: Text(
+                            "Sign In →",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
