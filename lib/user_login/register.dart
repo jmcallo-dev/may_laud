@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:may_laud/user_login/otp_verification.dart';
 import 'package:may_laud/user_login/password_field.dart';
+import 'unregistered.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -436,7 +436,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => const OtpVerificationScreen(),
+                      builder: (_) => const VerifiedSuccessScreen(),
                     ),
                   );
                 },
