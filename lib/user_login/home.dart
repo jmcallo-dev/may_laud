@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:may_laud/user_login/screens/chatbot.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:may_laud/user_login/screens/announcement.dart';
 
 class HomeDashboard extends StatelessWidget {
   const HomeDashboard({super.key});
@@ -48,11 +49,27 @@ class HomeDashboard extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            _navItem(Icons.home_outlined, 'Home', true),
-            _navItem(Icons.person_outline, 'Announcements', false),
-            _navItem(Icons.account_balance_outlined, 'Civic Hub', false),
-            _navItem(Icons.campaign_outlined, 'Report', false),
-            _navItem(Icons.person_outline, 'Profile', false),
+            _navItem(Icons.home_outlined, 'Home', true, onTap: () {
+              // Already on home screen
+            }),
+            _navItem(Icons.person_outline, 'Announcements', false, onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => AnnouncementScreen(),
+                ),
+              );
+            }),
+            _navItem(Icons.account_balance_outlined, 'Emergency', false,
+                onTap: () {
+              // Add navigation for Emergency screen here
+            }),
+            _navItem(Icons.campaign_outlined, 'Report', false, onTap: () {
+              // Add navigation for Report screen here
+            }),
+            _navItem(Icons.person_outline, 'Profile', false, onTap: () {
+              // Add navigation for Profile screen here
+            }),
           ],
         ),
       ),
@@ -114,7 +131,7 @@ class HomeDashboard extends StatelessWidget {
                 mainAxisSpacing: 16,
                 crossAxisSpacing: 16,
                 childAspectRatio: 1,
-                children: const [
+                children: [
                   _ActionCard(
                       icon: Icons.campaign_outlined, title: 'Report Issue'),
                   _ActionCard(icon: Icons.water, title: 'Flood Alert'),
@@ -122,7 +139,15 @@ class HomeDashboard extends StatelessWidget {
                       icon: Icons.how_to_vote_outlined, title: 'Vote / Poll'),
                   _ActionCard(
                       icon: Icons.notifications_active_outlined,
-                      title: 'Announcements'),
+                      title: 'Announcements',
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => AnnouncementScreen(),
+                          ),
+                        );
+                      }),
                 ],
               ),
               const SizedBox(height: 24),
@@ -337,16 +362,20 @@ class HomeDashboard extends StatelessWidget {
     );
   }
 
-  Widget _navItem(IconData icon, String label, bool active) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Icon(icon, color: active ? const Color(0xFF6A3CC3) : Colors.black54),
-        const SizedBox(height: 4),
-        Text(label,
-            style: TextStyle(
-                color: active ? const Color(0xFF6A3CC3) : Colors.black54)),
-      ],
+  Widget _navItem(IconData icon, String label, bool active,
+      {VoidCallback? onTap}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, color: active ? const Color(0xFF6A3CC3) : Colors.black54),
+          const SizedBox(height: 4),
+          Text(label,
+              style: TextStyle(
+                  color: active ? const Color(0xFF6A3CC3) : Colors.black54)),
+        ],
+      ),
     );
   }
 }
@@ -354,29 +383,33 @@ class HomeDashboard extends StatelessWidget {
 class _ActionCard extends StatelessWidget {
   final IconData icon;
   final String title;
-  const _ActionCard({required this.icon, required this.title});
+  final VoidCallback? onTap;
+  const _ActionCard({required this.icon, required this.title, this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: const Color(0xFFEFE7FB),
-        borderRadius: BorderRadius.circular(28),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(18),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        decoration: BoxDecoration(
+          color: const Color(0xFFEFE7FB),
+          borderRadius: BorderRadius.circular(28),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(18),
+              ),
+              child: Icon(icon, color: const Color(0xFF6A3CC3), size: 28),
             ),
-            child: Icon(icon, color: const Color(0xFF6A3CC3), size: 28),
-          ),
-          const SizedBox(height: 16),
-          Text(title, style: const TextStyle(fontWeight: FontWeight.w700)),
-        ],
+            const SizedBox(height: 16),
+            Text(title, style: const TextStyle(fontWeight: FontWeight.w700)),
+          ],
+        ),
       ),
     );
   }

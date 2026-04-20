@@ -27,7 +27,7 @@ class ChatBot extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: const [
                         Text(
-                          'May-Laud Concierge',
+                          'May-Laud Assistant',
                           style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.w700,
@@ -90,7 +90,7 @@ class ChatBot extends StatelessWidget {
                     ),
                     const SizedBox(height: 40),
                     const Text(
-                      'Concierge',
+                      'Assistant',
                       style: TextStyle(
                         color: Color(0xFF5B21B6),
                         fontWeight: FontWeight.w700,
