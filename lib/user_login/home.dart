@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/Chatbot.dart';
+import 'package:may_laud/user_login/screens/chatbot.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class HomeDashboard extends StatelessWidget {
@@ -169,7 +169,7 @@ class HomeDashboard extends StatelessWidget {
                     _NearbyItem(
                       icon: Icons.lightbulb_outline,
                       title: 'Broken Streetlight',
-                      subtitle: 'San Vicente Road • 200m away',
+                      subtitle: 'Del Rosario Road • 200m away',
                     ),
                     SizedBox(height: 14),
                     _NearbyItem(
@@ -487,7 +487,7 @@ void openChatbotScreen(BuildContext context) {
   Navigator.push(
     context,
     MaterialPageRoute(
-      builder: (context) => const ChatBot(),
+      builder: (context) => ChatBot(),
     ),
   );
 }
