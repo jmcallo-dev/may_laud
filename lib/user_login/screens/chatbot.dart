@@ -19,7 +19,7 @@ class ChatBot extends StatelessWidget {
                   const CircleAvatar(
                     radius: 24,
                     backgroundImage:
-                        AssetImage('assets/images/concierge_avatar.png'),
+                        AssetImage('assets/images/chatbotavatar.png'),
                   ),
                   const SizedBox(width: 16),
                   Expanded(
@@ -100,7 +100,7 @@ class ChatBot extends StatelessWidget {
                     const SizedBox(height: 14),
                     _chatBubble(
                       text:
-                          'Marhay na aga! I am your May-Laud Concierge. How can I help you today?',
+                          'Marhay na aga! I am your May-Laud Assistant. How can I help you today?',
                       isUser: false,
                     ),
                     const SizedBox(height: 28),
@@ -118,12 +118,12 @@ class ChatBot extends StatelessWidget {
                     const SizedBox(height: 14),
                     _chatBubble(
                       text:
-                          'How do I report a clogged drainage in San Vicente?',
+                          'How do I report a clogged drainage in Del Rosario?',
                       isUser: true,
                     ),
                     const SizedBox(height: 32),
                     const Text(
-                      'Concierge',
+                      'Assistant',
                       style: TextStyle(
                         color: Color(0xFF5B21B6),
                         fontWeight: FontWeight.w700,

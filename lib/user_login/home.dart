@@ -21,7 +21,7 @@ class HomeDashboard extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const ChatBot(),
+              builder: (context) => ChatBot(),
             ),
           );
         }, //end of onPressed
@@ -69,9 +69,7 @@ class HomeDashboard extends StatelessWidget {
                     children: [
                       const CircleAvatar(
                         radius: 18,
-                        backgroundImage: NetworkImage(
-                          'https://i.pravatar.cc/150?img=12',
-                        ),
+                        backgroundImage: AssetImage('assets/images/avatar.png'),
                       ),
                       const SizedBox(width: 10),
                       Text(
