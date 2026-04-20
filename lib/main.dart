@@ -1,4 +1,5 @@
-import 'dart:ui';
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'user_login/login_number.dart';
 
@@ -319,7 +320,57 @@ class _OnboardingScreenState extends State<OnboardingScreen>
     return Scaffold(
       body: Stack(
         children: [
-          const OnboardBackground(), // ✅ ADDED BACKGROUND
+          // Enhanced gradient background with animated floating elements
+          Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Color(0xFF6A11CB),
+                  Color(0xFF2575FC),
+                ],
+              ),
+            ),
+          ),
+
+          // Animated floating circles
+          Positioned(
+            top: -50,
+            left: -50,
+            child: Container(
+              width: 200,
+              height: 200,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: RadialGradient(
+                  colors: [
+                    Colors.white.withOpacity(0.1),
+                    Colors.transparent,
+                  ],
+                ),
+              ),
+            ),
+          ),
+
+          Positioned(
+            bottom: -80,
+            right: -80,
+            child: Container(
+              width: 250,
+              height: 250,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: RadialGradient(
+                  colors: [
+                    Colors.purpleAccent.withOpacity(0.15),
+                    Colors.transparent,
+                  ],
+                ),
+              ),
+            ),
+          ),
+
           SafeArea(
             child: FadeTransition(
               opacity: fadeAnim,
@@ -336,186 +387,226 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                             children: [
                               const SizedBox(height: 40),
 
-                              // IMAGE + GLASS CARD
+                              // Modern image card with glass effect
                               Stack(
                                 children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(32),
-                                    child: Image.asset(
-                                      'assets/images/onboard1.png',
-                                      height: 320,
-                                      width: double.infinity,
-                                      fit: BoxFit.cover,
+                                  // Main image with shadow
+                                  Container(
+                                    height: 300,
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(32),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.black.withOpacity(0.2),
+                                          blurRadius: 30,
+                                          offset: const Offset(0, 10),
+                                        ),
+                                      ],
+                                    ),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(32),
+                                      child: Image.asset(
+                                        'assets/images/onboard1.png',
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ),
+
+                                  // Glass overlay badge
                                   Positioned(
-                                    bottom: 20,
-                                    left: 20,
+                                    top: 20,
                                     right: 20,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(24),
-                                      child: BackdropFilter(
-                                        filter: ImageFilter.blur(
-                                            sigmaX: 15, sigmaY: 15),
-                                        child: Container(
-                                          padding: const EdgeInsets.all(16),
-                                          decoration: BoxDecoration(
-                                            color: const Color.fromARGB(
-                                                0, 255, 255, 255),
-                                            borderRadius:
-                                                BorderRadius.circular(24),
-                                          ),
-                                          child: Row(
-                                            children: const [
-                                              CircleAvatar(
-                                                backgroundColor:
-                                                    Color(0xFFEADDFF),
-                                                child: Icon(Icons.groups,
-                                                    color: Color(0xFF4C229C)),
-                                              ),
-                                              SizedBox(width: 12),
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    "COMMUNITY HUB",
-                                                    style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize: 12,
-                                                    ),
-                                                  ),
-                                                  Text(
-                                                    "Connected & Resilient",
-                                                  ),
-                                                ],
-                                              )
-                                            ],
-                                          ),
+                                    child: Container(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 16,
+                                        vertical: 8,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(20),
+                                        color: Colors.white.withOpacity(0.2),
+                                        border: Border.all(
+                                          color: Colors.white.withOpacity(0.3),
                                         ),
                                       ),
-                                    ),
-                                  ),
-                                  Positioned(
-                                    bottom: 10,
-                                    right: 10,
-                                    child: Container(
-                                      height: 50,
-                                      width: 50,
-                                      decoration: const BoxDecoration(
-                                        color: Color(0xFF4C229C),
-                                        shape: BoxShape.circle,
+                                      child: const Row(
+                                        children: [
+                                          Icon(
+                                            Icons.verified,
+                                            color: Colors.white,
+                                            size: 16,
+                                          ),
+                                          SizedBox(width: 6),
+                                          Text(
+                                            "COMMUNITY",
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ],
                                       ),
-                                      child: const Icon(Icons.edit,
-                                          color: Colors.white),
                                     ),
                                   ),
                                 ],
                               ),
 
-                              const SizedBox(height: 30),
+                              const SizedBox(height: 40),
 
-                              const Text(
-                                "Your Digital Town Hall\nof Milaor",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontSize: 32,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xFF4C229C),
+                              // Title with gradient text
+                              ShaderMask(
+                                shaderCallback: (bounds) =>
+                                    const LinearGradient(
+                                  colors: [
+                                    Colors.white,
+                                    Color(0xFFEADDFF),
+                                  ],
+                                ).createShader(bounds),
+                                child: const Text(
+                                  "Your Digital\nTown Hall",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontSize: 42,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
                                 ),
                               ),
 
                               const SizedBox(height: 16),
 
+                              // Subtitle
                               const Text(
-                                "Serving all 20 barangays of Milaor—May-Laud connects every resident to faster services, clearer communication, and a community that listens and responds.",
+                                "Milaor, Camarines Sur",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  fontSize: 16,
-                                  color: Color(0xFF6E6A75),
-                                  height: 1.5,
+                                  fontSize: 18,
+                                  color: Colors.white70,
+                                  letterSpacing: 2,
                                 ),
                               ),
 
                               const SizedBox(height: 30),
 
-                              AnimatedContainer(
-                                duration: const Duration(milliseconds: 600),
-                                width: double.infinity,
+                              // Description with glass card
+                              Container(
                                 padding: const EdgeInsets.all(24),
                                 decoration: BoxDecoration(
-                                  gradient: const LinearGradient(
-                                    colors: [
-                                      Color(0xFF4C229C),
-                                      Color(0xFF643EB5)
-                                    ],
+                                  borderRadius: BorderRadius.circular(24),
+                                  color: Colors.white.withOpacity(0.1),
+                                  border: Border.all(
+                                    color: Colors.white.withOpacity(0.2),
                                   ),
-                                  borderRadius: BorderRadius.circular(28),
                                 ),
                                 child: const Column(
                                   children: [
-                                    Icon(Icons.history,
-                                        color: Colors.white, size: 30),
+                                    Icon(
+                                      Icons.people,
+                                      color: Colors.white,
+                                      size: 40,
+                                    ),
                                     SizedBox(height: 16),
                                     Text(
-                                      "Rooted in Milaor",
+                                      "Connected Community",
                                       style: TextStyle(
-                                        color: Color(0xFFD7C4FF),
-                                        fontSize: 18,
+                                        color: Colors.white,
+                                        fontSize: 22,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
-                                    SizedBox(height: 10),
+                                    SizedBox(height: 12),
                                     Text(
-                                      "From the meaning of May-Laud—'towards the lowland'—our town’s story flows through the Bicol River, shaping a community connected by culture, history, and resilience.",
+                                      "Serving all 20 barangays of Milaor with faster services, clearer communication, and a responsive community platform.",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                        color: Color(0xFFD7C4FF),
+                                        color: Colors.white70,
+                                        fontSize: 16,
+                                        height: 1.5,
                                       ),
                                     ),
                                   ],
                                 ),
                               ),
 
-                              const SizedBox(height: 20),
+                              const SizedBox(height: 40),
 
+                              // Progress dots with animation
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   _activeDot(),
-                                  const SizedBox(width: 8),
+                                  const SizedBox(width: 12),
                                   _dot(),
-                                  const SizedBox(width: 8),
+                                  const SizedBox(width: 12),
                                   _dot(),
                                 ],
                               ),
 
-                              const SizedBox(height: 20),
+                              const SizedBox(height: 40),
                             ],
                           ),
                         ),
                       ),
+
+                      // Bottom navigation with modern button
                       Container(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 24, vertical: 20),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Text("Step 1 of 3"),
+                            Text(
+                              "Step 1 of 3",
+                              style: TextStyle(
+                                color: Colors.white.withOpacity(0.7),
+                                fontSize: 14,
+                              ),
+                            ),
                             GestureDetector(
                               onTap: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(
-                                    builder: (_) => const OnboardingScreen2(),
+                                  PageRouteBuilder(
+                                    pageBuilder: (_, __, ___) =>
+                                        const OnboardingScreen2(),
+                                    transitionsBuilder:
+                                        (_, animation, __, child) {
+                                      return SlideTransition(
+                                        position: Tween<Offset>(
+                                          begin: const Offset(1.0, 0.0),
+                                          end: Offset.zero,
+                                        ).animate(animation),
+                                        child: child,
+                                      );
+                                    },
                                   ),
                                 );
                               },
-                              child: const CircleAvatar(
-                                backgroundColor: Color(0xFF4C229C),
-                                child: Icon(Icons.arrow_forward,
-                                    color: Colors.white),
+                              child: Container(
+                                width: 60,
+                                height: 60,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  gradient: const LinearGradient(
+                                    colors: [
+                                      Color(0xFF4C229C),
+                                      Color(0xFF643EB5),
+                                    ],
+                                  ),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.purple.withOpacity(0.4),
+                                      blurRadius: 15,
+                                      offset: const Offset(0, 5),
+                                    ),
+                                  ],
+                                ),
+                                child: const Icon(
+                                  Icons.arrow_forward,
+                                  color: Colors.white,
+                                  size: 28,
+                                ),
                               ),
                             ),
                           ],
@@ -595,7 +686,57 @@ class _OnboardingScreen2State extends State<OnboardingScreen2>
     return Scaffold(
       body: Stack(
         children: [
-          const OnboardBackground(), // ✅ BACKGROUND APPLIED
+          // Modern gradient background
+          Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Color(0xFF2575FC),
+                  Color(0xFF6A11CB),
+                ],
+              ),
+            ),
+          ),
+
+          // Animated floating elements
+          Positioned(
+            top: 100,
+            left: -80,
+            child: Container(
+              width: 200,
+              height: 200,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: RadialGradient(
+                  colors: [
+                    Colors.white.withOpacity(0.08),
+                    Colors.transparent,
+                  ],
+                ),
+              ),
+            ),
+          ),
+
+          Positioned(
+            bottom: 150,
+            right: -100,
+            child: Container(
+              width: 250,
+              height: 250,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: RadialGradient(
+                  colors: [
+                    Colors.purpleAccent.withOpacity(0.1),
+                    Colors.transparent,
+                  ],
+                ),
+              ),
+            ),
+          ),
+
           SafeArea(
             child: FadeTransition(
               opacity: fadeAnim,
@@ -605,128 +746,146 @@ class _OnboardingScreen2State extends State<OnboardingScreen2>
                   scale: scaleAnim,
                   child: Column(
                     children: [
-                      /// CONTENT
                       Expanded(
                         child: SingleChildScrollView(
                           padding: const EdgeInsets.symmetric(horizontal: 24),
                           child: Column(
                             children: [
-                              const SizedBox(height: 20),
+                              const SizedBox(height: 40),
 
-                              /// IMAGE SECTION
-                              Stack(
-                                children: [
-                                  AnimatedContainer(
-                                    duration: const Duration(milliseconds: 600),
-                                    height: 300,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(30),
-                                      image: const DecorationImage(
-                                        image: AssetImage(
-                                            "assets/images/onboard2.png"),
+                              // Modern image display
+                              Container(
+                                height: 280,
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(32),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.3),
+                                      blurRadius: 25,
+                                      offset: const Offset(0, 15),
+                                    ),
+                                  ],
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(32),
+                                  child: Stack(
+                                    children: [
+                                      Image.asset(
+                                        "assets/images/onboard2.png",
                                         fit: BoxFit.cover,
+                                        height: double.infinity,
+                                        width: double.infinity,
                                       ),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: Colors.black,
-                                          blurRadius: 20,
-                                          offset: const Offset(0, 10),
-                                        )
-                                      ],
-                                    ),
-                                  ),
+                                      Container(
+                                        decoration: BoxDecoration(
+                                          gradient: LinearGradient(
+                                            begin: Alignment.bottomCenter,
+                                            end: Alignment.topCenter,
+                                            colors: [
+                                              Colors.black.withOpacity(0.5),
+                                              Colors.transparent,
+                                            ],
+                                          ),
+                                        ),
+                                      ),
 
-                                  /// GLOW EFFECT
-                                  Positioned(
-                                    right: -20,
-                                    bottom: -20,
-                                    child: Container(
-                                      width: 100,
-                                      height: 100,
-                                      decoration: const BoxDecoration(
-                                        color: Color(0x33643EB5),
-                                        shape: BoxShape.circle,
+                                      // Badge on image
+                                      Positioned(
+                                        bottom: 20,
+                                        left: 20,
+                                        child: Container(
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 16,
+                                            vertical: 8,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            color:
+                                                Colors.white.withOpacity(0.2),
+                                            border: Border.all(
+                                              color:
+                                                  Colors.white.withOpacity(0.3),
+                                            ),
+                                          ),
+                                          child: const Text(
+                                            "HERITAGE",
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.bold,
+                                              letterSpacing: 1.5,
+                                            ),
+                                          ),
+                                        ),
                                       ),
-                                    ),
+                                    ],
                                   ),
-                                ],
+                                ),
                               ),
 
                               const SizedBox(height: 40),
 
-                              /// LABEL
-                              Container(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 14, vertical: 6),
-                                decoration: BoxDecoration(
-                                  color: const Color(0xFFD7C4FF),
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
+                              // Title with gradient
+                              ShaderMask(
+                                shaderCallback: (bounds) =>
+                                    const LinearGradient(
+                                  colors: [
+                                    Color(0xFFEADDFF),
+                                    Colors.white,
+                                  ],
+                                ).createShader(bounds),
                                 child: const Text(
-                                  "OUR HERITAGE",
+                                  "Towards the\nLowland",
+                                  textAlign: TextAlign.center,
                                   style: TextStyle(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w600,
-                                    color: Color(0xFF4C229C),
+                                    fontSize: 38,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
                                   ),
-                                ),
-                              ),
-
-                              const SizedBox(height: 20),
-
-                              /// TITLE
-                              const Text(
-                                "Towards the Lowland",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontSize: 28,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xFF4C229C),
                                 ),
                               ),
 
                               const SizedBox(height: 16),
 
-                              /// DESCRIPTION
+                              // Subtitle
                               const Text(
-                                "In the heart of Milaor Camarines Sur.\n"
-                                "Its name, \"May-Laud\", is an ancient\n"
-                                "orientation—meaning \"towards the\n"
-                                "lowland\" or \"towards the sea.\"",
+                                "May-Laud: Ancient Orientation",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  fontSize: 15,
-                                  height: 1.5,
-                                  color: Color(0xFF555555),
+                                  fontSize: 16,
+                                  color: Colors.white70,
+                                  fontStyle: FontStyle.italic,
                                 ),
                               ),
 
                               const SizedBox(height: 30),
 
-                              /// INFO CARD
+                              // Description card
                               Container(
-                                width: double.infinity,
-                                padding: const EdgeInsets.all(20),
+                                padding: const EdgeInsets.all(24),
                                 decoration: BoxDecoration(
-                                  color: const Color(0xFFF4F0FA),
-                                  borderRadius: BorderRadius.circular(30),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.black,
-                                      blurRadius: 15,
-                                      offset: const Offset(0, 6),
-                                    )
-                                  ],
+                                  borderRadius: BorderRadius.circular(24),
+                                  color: Colors.white.withOpacity(0.1),
+                                  border: Border.all(
+                                    color: Colors.white.withOpacity(0.2),
+                                  ),
                                 ),
                                 child: const Column(
                                   children: [
+                                    Icon(
+                                      Icons.water,
+                                      color: Colors.white,
+                                      size: 40,
+                                    ),
+                                    SizedBox(height: 16),
                                     Text(
                                       "The Bicol River Pulse",
-                                      textAlign: TextAlign.center,
                                       style: TextStyle(
-                                        fontSize: 18,
+                                        color: Colors.white,
+                                        fontSize: 22,
                                         fontWeight: FontWeight.bold,
-                                        color: Color(0xFF4C229C),
                                       ),
                                     ),
                                     SizedBox(height: 12),
@@ -734,56 +893,93 @@ class _OnboardingScreen2State extends State<OnboardingScreen2>
                                       "Flowing through Milaor, the Bicol River has long been the lifeblood of our town—connecting communities, shaping livelihoods, and guiding our journey from the highlands to the sea.",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                        fontSize: 14,
-                                        color: Color(0xFF555555),
+                                        color: Colors.white70,
+                                        fontSize: 16,
+                                        height: 1.5,
                                       ),
                                     ),
                                   ],
                                 ),
                               ),
 
-                              const SizedBox(height: 30),
+                              const SizedBox(height: 40),
 
-                              /// DOTS
+                              // Progress dots
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   _dot(false),
-                                  const SizedBox(width: 6),
+                                  const SizedBox(width: 12),
                                   _dot(true),
-                                  const SizedBox(width: 6),
+                                  const SizedBox(width: 12),
                                   _dot(false),
                                 ],
                               ),
 
-                              const SizedBox(height: 20),
+                              const SizedBox(height: 40),
                             ],
                           ),
                         ),
                       ),
 
-                      /// BOTTOM NAV
+                      // Bottom navigation
                       Container(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 24, vertical: 20),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Text("Step 2 of 3"),
-                            InkWell(
-                              borderRadius: BorderRadius.circular(50),
+                            Text(
+                              "Step 2 of 3",
+                              style: TextStyle(
+                                color: Colors.white.withOpacity(0.7),
+                                fontSize: 14,
+                              ),
+                            ),
+                            GestureDetector(
                               onTap: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(
-                                    builder: (_) => const OnboardingScreen3(),
+                                  PageRouteBuilder(
+                                    pageBuilder: (_, __, ___) =>
+                                        const OnboardingScreen3(),
+                                    transitionsBuilder:
+                                        (_, animation, __, child) {
+                                      return SlideTransition(
+                                        position: Tween<Offset>(
+                                          begin: const Offset(1.0, 0.0),
+                                          end: Offset.zero,
+                                        ).animate(animation),
+                                        child: child,
+                                      );
+                                    },
                                   ),
                                 );
                               },
-                              child: const CircleAvatar(
-                                backgroundColor: Color(0xFF4C229C),
-                                child: Icon(Icons.arrow_forward,
-                                    color: Colors.white),
+                              child: Container(
+                                width: 60,
+                                height: 60,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  gradient: const LinearGradient(
+                                    colors: [
+                                      Color(0xFF4C229C),
+                                      Color(0xFF643EB5),
+                                    ],
+                                  ),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.purple.withOpacity(0.4),
+                                      blurRadius: 15,
+                                      offset: const Offset(0, 5),
+                                    ),
+                                  ],
+                                ),
+                                child: const Icon(
+                                  Icons.arrow_forward,
+                                  color: Colors.white,
+                                  size: 28,
+                                ),
                               ),
                             ),
                           ],
@@ -862,7 +1058,59 @@ class _OnboardingScreen3State extends State<OnboardingScreen3>
     return Scaffold(
       body: Stack(
         children: [
-          const OnboardBackground(), // ✅ background applied
+          // Modern gradient background
+          Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Color(0xFF6A11CB),
+                  Color(0xFF2575FC),
+                  Color(0xFF4C229C),
+                ],
+                stops: [0.0, 0.5, 1.0],
+              ),
+            ),
+          ),
+
+          // Animated floating elements
+          Positioned(
+            top: -60,
+            right: -60,
+            child: Container(
+              width: 200,
+              height: 200,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: RadialGradient(
+                  colors: [
+                    Colors.white.withOpacity(0.1),
+                    Colors.transparent,
+                  ],
+                ),
+              ),
+            ),
+          ),
+
+          Positioned(
+            bottom: -100,
+            left: -100,
+            child: Container(
+              width: 300,
+              height: 300,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: RadialGradient(
+                  colors: [
+                    Colors.purpleAccent.withOpacity(0.15),
+                    Colors.transparent,
+                  ],
+                ),
+              ),
+            ),
+          ),
+
           SafeArea(
             child: FadeTransition(
               opacity: fadeAnim,
@@ -879,207 +1127,267 @@ class _OnboardingScreen3State extends State<OnboardingScreen3>
                             children: [
                               const SizedBox(height: 40),
 
-                              /// IMAGE
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(30),
-                                child: Stack(
-                                  children: [
-                                    Image.asset(
-                                      "assets/images/onboard3.png",
-                                      height: 280,
-                                      width: double.infinity,
-                                      fit: BoxFit.cover,
+                              // Modern image display
+                              Container(
+                                height: 280,
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(32),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.3),
+                                      blurRadius: 30,
+                                      offset: const Offset(0, 20),
                                     ),
-
-                                    /// DARK GRADIENT
-                                    Container(
-                                      height: 280,
-                                      decoration: const BoxDecoration(
-                                        gradient: LinearGradient(
-                                          colors: [
-                                            Colors.black,
-                                            Colors.transparent
-                                          ],
-                                          begin: Alignment.bottomCenter,
-                                          end: Alignment.topCenter,
-                                        ),
+                                  ],
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(32),
+                                  child: Stack(
+                                    children: [
+                                      Image.asset(
+                                        "assets/images/onboard3.png",
+                                        fit: BoxFit.cover,
+                                        height: double.infinity,
+                                        width: double.infinity,
                                       ),
-                                    ),
-
-                                    /// TOP BADGE
-                                    Positioned(
-                                      top: 14,
-                                      right: 14,
-                                      child: Container(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 14, vertical: 8),
+                                      Container(
                                         decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(30),
-                                        ),
-                                        child: const Row(
-                                          children: [
-                                            Icon(Icons.verified,
-                                                color: Colors.orange, size: 16),
-                                            SizedBox(width: 6),
-                                            Text(
-                                              "Confirmed",
-                                              style: TextStyle(
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.w600,
-                                                color: Color(0xFF4C229C),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-
-                                    /// BOTTOM BADGE
-                                    Positioned(
-                                      bottom: 14,
-                                      left: 14,
-                                      child: Container(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 14, vertical: 6),
-                                        decoration: BoxDecoration(
-                                          gradient: const LinearGradient(
+                                          gradient: LinearGradient(
+                                            begin: Alignment.bottomCenter,
+                                            end: Alignment.topCenter,
                                             colors: [
-                                              Color(0xFF6A4BC4),
-                                              Color(0xFF8A6BFF)
+                                              Colors.black.withOpacity(0.6),
+                                              Colors.transparent,
                                             ],
                                           ),
-                                          borderRadius:
-                                              BorderRadius.circular(20),
                                         ),
-                                        child: const Text(
-                                          "⚠ Priority Resolution",
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 12,
+                                      ),
+
+                                      // Badge on image
+                                      Positioned(
+                                        top: 20,
+                                        left: 20,
+                                        child: Container(
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 16,
+                                            vertical: 8,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            color:
+                                                Colors.white.withOpacity(0.2),
+                                            border: Border.all(
+                                              color:
+                                                  Colors.white.withOpacity(0.3),
+                                            ),
+                                          ),
+                                          child: const Row(
+                                            children: [
+                                              Icon(
+                                                Icons.verified,
+                                                color: Colors.orange,
+                                                size: 16,
+                                              ),
+                                              SizedBox(width: 6),
+                                              Text(
+                                                "CONFIRMED",
+                                                style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                            ],
                                           ),
                                         ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+
+                              const SizedBox(height: 40),
+
+                              // Title with gradient
+                              ShaderMask(
+                                shaderCallback: (bounds) =>
+                                    const LinearGradient(
+                                  colors: [
+                                    Colors.white,
+                                    Color(0xFFEADDFF),
+                                  ],
+                                ).createShader(bounds),
+                                child: const Text(
+                                  "Para sa Milaor\nPara sa Tawo",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontSize: 40,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+
+                              const SizedBox(height: 16),
+
+                              // Subtitle
+                              const Text(
+                                "For Milaor, For the People",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.white70,
+                                  fontStyle: FontStyle.italic,
+                                ),
+                              ),
+
+                              const SizedBox(height: 30),
+
+                              // Description card
+                              Container(
+                                padding: const EdgeInsets.all(24),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(24),
+                                  color: Colors.white.withOpacity(0.1),
+                                  border: Border.all(
+                                    color: Colors.white.withOpacity(0.2),
+                                  ),
+                                ),
+                                child: const Column(
+                                  children: [
+                                    Icon(
+                                      Icons.handshake,
+                                      color: Colors.white,
+                                      size: 40,
+                                    ),
+                                    SizedBox(height: 16),
+                                    Text(
+                                      "Community First",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 22,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    SizedBox(height: 12),
+                                    Text(
+                                      "Report concerns, access services, and stay updated—May-Laud brings your barangay closer, faster, and more transparent than ever.",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        color: Colors.white70,
+                                        fontSize: 16,
+                                        height: 1.5,
+                                      ),
+                                    ),
+                                    SizedBox(height: 16),
+                                    Text(
+                                      "Oragon kita! Let's build Milaor together.",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        color: Color(0xFFD7C4FF),
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600,
+                                        fontStyle: FontStyle.italic,
                                       ),
                                     ),
                                   ],
                                 ),
                               ),
 
-                              const SizedBox(height: 30),
+                              const SizedBox(height: 40),
 
-                              /// TITLE
-                              const Text(
-                                "Para sa Milaor\n Para sa Tawo.",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontSize: 34,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xFF4C229C),
-                                ),
-                              ),
-
-                              const SizedBox(height: 16),
-
-                              /// DESCRIPTION
-                              const Text(
-                                "Report concerns, access services, and stay updated—May-Laud brings your barangay closer, faster, and more transparent than ever.",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  height: 1.6,
-                                  color: Color(0xFF7A6F9B),
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-
-                              const SizedBox(height: 10),
-
-                              /// SLOGAN
-                              const Text(
-                                "Oragon kita! Let’s build Milaor together.",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontStyle: FontStyle.italic,
-                                  color: Color(0xFF6A4BC4),
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-
-                              const SizedBox(height: 30),
-
-                              /// DOTS
+                              // Progress dots
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   dot(false),
-                                  const SizedBox(width: 6),
+                                  const SizedBox(width: 12),
                                   dot(false),
-                                  const SizedBox(width: 6),
+                                  const SizedBox(width: 12),
                                   dot(true),
                                 ],
                               ),
 
-                              const SizedBox(height: 20),
-
-                              const Text("Step 3 of 3"),
-
                               const SizedBox(height: 30),
 
-                              /// START BUTTON
-                              GestureDetector(
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    PageRouteBuilder(
-                                      transitionDuration:
-                                          const Duration(milliseconds: 500),
-                                      pageBuilder: (_, __, ___) =>
-                                          const LoginScreen(),
-                                      transitionsBuilder:
-                                          (_, animation, __, child) {
-                                        return FadeTransition(
-                                          opacity: animation,
-                                          child: child,
-                                        );
-                                      },
-                                    ),
-                                  );
-                                },
-                                child: Container(
-                                  width: double.infinity,
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 18),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(30),
-                                    gradient: const LinearGradient(
-                                      colors: [
-                                        Color(0xFF4C229C),
-                                        Color(0xFF643EB5),
-                                      ],
-                                    ),
-                                  ),
-                                  child: const Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        "Start Exploring",
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                      SizedBox(width: 10),
-                                      Icon(Icons.arrow_forward,
-                                          color: Colors.white),
-                                    ],
-                                  ),
+                              // Step indicator
+                              Text(
+                                "Step 3 of 3",
+                                style: TextStyle(
+                                  color: Colors.white.withOpacity(0.7),
+                                  fontSize: 14,
+                                  letterSpacing: 1.5,
                                 ),
                               ),
 
-                              const SizedBox(height: 30),
+                              const SizedBox(height: 40),
                             ],
+                          ),
+                        ),
+                      ),
+
+                      // Start button
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 24, vertical: 20),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              PageRouteBuilder(
+                                transitionDuration:
+                                    const Duration(milliseconds: 600),
+                                pageBuilder: (_, __, ___) =>
+                                    const LoginScreen(),
+                                transitionsBuilder: (_, animation, __, child) {
+                                  return FadeTransition(
+                                    opacity: animation,
+                                    child: child,
+                                  );
+                                },
+                              ),
+                            );
+                          },
+                          child: Container(
+                            width: double.infinity,
+                            padding: const EdgeInsets.symmetric(vertical: 20),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              gradient: const LinearGradient(
+                                colors: [
+                                  Color(0xFF4C229C),
+                                  Color(0xFF643EB5),
+                                ],
+                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.purple.withOpacity(0.4),
+                                  blurRadius: 20,
+                                  offset: const Offset(0, 10),
+                                ),
+                              ],
+                            ),
+                            child: const Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Start Exploring",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                SizedBox(width: 12),
+                                Icon(
+                                  Icons.arrow_forward,
+                                  color: Colors.white,
+                                  size: 24,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),

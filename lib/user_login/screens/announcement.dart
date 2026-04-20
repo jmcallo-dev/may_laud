@@ -10,8 +10,8 @@ import 'package:flutter/material.dart';
 // }
 
 // ===================== ANNOUNCEMENT SCREEN =====================
-class AnnouncementScreen extends StatelessWidget {
-  const AnnouncementScreen({super.key});
+class AnnouncementFeedScreen extends StatelessWidget {
+  const AnnouncementFeedScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

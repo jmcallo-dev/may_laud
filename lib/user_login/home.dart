@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:may_laud/user_login/screens/chatbot.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:may_laud/user_login/screens/announcement.dart';
+//import 'package:may_laud/user_login/screens/announcement.dart';
+import 'package:may_laud/user_login/screens/announcement_details.dart';
 
 class HomeDashboard extends StatelessWidget {
   const HomeDashboard({super.key});
@@ -56,7 +57,7 @@ class HomeDashboard extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => AnnouncementScreen(),
+                  builder: (context) => AnnouncementsFeedScreen(),
                 ),
               );
             }),
@@ -144,7 +145,7 @@ class HomeDashboard extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => AnnouncementScreen(),
+                            builder: (context) => AnnouncementsFeedScreen(),
                           ),
                         );
                       }),
