@@ -1,9 +1,9 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:may_laud/user_login/home.dart';
 import 'package:may_laud/user_login/screens/login_screens/account_not_found_screen.dart';
 import 'package:may_laud/user_login/welcome_back.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-/// ---------------- PREMIUM LOGIN SCREEN ----------------
+/// ---------------- PHONE NUMBER CHECKING LOGIN SCREEN ----------------
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -56,8 +56,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-
     return Scaffold(
       backgroundColor: const Color(0xFF0A0A1A),
       body: Stack(
@@ -85,11 +83,11 @@ class _LoginScreenState extends State<LoginScreen> {
 
           // Animated floating elements
           Positioned(
-            top: size.height * 0.1,
-            right: size.width * 0.1,
+            top: 0.1.sh,
+            right: 0.1.sw,
             child: Container(
-              width: 80,
-              height: 80,
+              width: 80.w,
+              height: 80.h,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 gradient: RadialGradient(
@@ -103,11 +101,11 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
 
           Positioned(
-            bottom: size.height * 0.15,
-            left: size.width * 0.05,
+            bottom: 0.15.sh,
+            left: 0.05.sw,
             child: Container(
-              width: 60,
-              height: 60,
+              width: 60.w,
+              height: 60.h,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 gradient: RadialGradient(
@@ -122,16 +120,16 @@ class _LoginScreenState extends State<LoginScreen> {
 
           SafeArea(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 28),
+              padding: EdgeInsets.symmetric(horizontal: 28.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 40),
+                  SizedBox(height: 40.h),
 
                   // App Logo/Icon with glow effect
                   Container(
-                    width: 100,
-                    height: 100,
+                    width: 100.w,
+                    height: 100.h,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       gradient: const LinearGradient(
@@ -145,141 +143,150 @@ class _LoginScreenState extends State<LoginScreen> {
                       boxShadow: [
                         BoxShadow(
                           color: const Color(0xFF7B2CBF).withOpacity(0.5),
-                          blurRadius: 20,
-                          spreadRadius: 5,
+                          blurRadius: 20.r,
+                          spreadRadius: 5.r,
                         ),
                       ],
                     ),
-                    child: const Center(
+                    child: Center(
                       child: Icon(
                         Icons.phone_iphone,
-                        size: 50,
+                        size: 50.sp,
                         color: Colors.white,
                       ),
                     ),
                   ),
 
-                  const SizedBox(height: 30),
+                  SizedBox(height: 30.h),
 
                   // Title
-                  const Text(
+                  Text(
                     "Welcome to\nMay‑Laud",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 36,
+                      fontSize: 36.sp,
                       fontWeight: FontWeight.w800,
                       color: Colors.white,
                       height: 1.2,
                     ),
                   ),
 
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16.h),
 
                   // Subtitle
-                  const Text(
-                    "Enter your phone number to access your civic dashboard or create a new account.",
+                  Text(
+                    "Please provide your phone number\nbelow to check if you have an account\nor if not please create your account.",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 16,
-                      color: Color(0xFFA0A0C0),
+                      fontSize: 16.sp,
+                      color: const Color(0xFFA0A0C0),
                       height: 1.5,
                     ),
                   ),
 
-                  const SizedBox(height: 50),
+                  SizedBox(height: 50.h),
 
                   // Phone input card
                   Container(
-                    padding: const EdgeInsets.all(24),
+                    padding: EdgeInsets.all(24.r),
                     decoration: BoxDecoration(
                       color: const Color(0xFF1E1E3A),
-                      borderRadius: BorderRadius.circular(24),
+                      borderRadius: BorderRadius.circular(24.r),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black.withOpacity(0.3),
-                          blurRadius: 20,
-                          offset: const Offset(0, 10),
+                          blurRadius: 20.r,
+                          offset: Offset(0, 10.h),
                         ),
                       ],
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
+                        Text(
                           "PHONE NUMBER",
                           style: TextStyle(
-                            fontSize: 14,
+                            fontSize: 14.sp,
                             fontWeight: FontWeight.w600,
-                            color: Color(0xFF8A8AC4),
+                            color: const Color(0xFF8A8AC4),
                             letterSpacing: 1,
                           ),
                         ),
-                        const SizedBox(height: 12),
+                        SizedBox(height: 12.h),
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          padding: EdgeInsets.symmetric(horizontal: 16.w),
                           decoration: BoxDecoration(
                             color: const Color(0xFF252547),
-                            borderRadius: BorderRadius.circular(16),
+                            borderRadius: BorderRadius.circular(16.r),
                             border: Border.all(
                               color: const Color(0xFF3A3A6A),
-                              width: 1,
+                              width: 1.w,
                             ),
                           ),
                           child: Row(
                             children: [
                               Row(
-                                children: const [
-                                  Text("🇵🇭", style: TextStyle(fontSize: 18)),
-                                  SizedBox(width: 8),
+                                children: [
+                                  Text("🇵🇭",
+                                      style: TextStyle(fontSize: 18.sp)),
+                                  SizedBox(width: 8.w),
                                   Text(
                                     "+63",
                                     style: TextStyle(
                                       fontWeight: FontWeight.w600,
                                       color: Colors.white,
+                                      fontSize: 16.sp,
                                     ),
                                   ),
                                   Icon(
                                     Icons.keyboard_arrow_down,
                                     color: Colors.white70,
+                                    size: 20.sp,
                                   ),
                                 ],
                               ),
-                              const SizedBox(width: 12),
+                              SizedBox(width: 12.w),
                               Container(
-                                width: 1,
-                                height: 24,
+                                width: 1.w,
+                                height: 24.h,
                                 color: const Color(0xFF3A3A6A),
                               ),
-                              const SizedBox(width: 12),
+                              SizedBox(width: 12.w),
                               Expanded(
                                 child: TextField(
                                   controller: phoneController,
                                   keyboardType: TextInputType.phone,
-                                  style: const TextStyle(
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.digitsOnly,
+                                  ],
+                                  maxLength: 10,
+                                  style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 18,
+                                    fontSize: 18.sp,
                                   ),
-                                  decoration: const InputDecoration(
+                                  decoration: InputDecoration(
                                     hintText: "9987654321",
                                     hintStyle: TextStyle(
-                                      color: Color(0xFF6A6A8A),
+                                      color: const Color(0xFF6A6A8A),
+                                      fontSize: 16.sp,
                                     ),
                                     border: InputBorder.none,
+                                    counterText: '',
                                   ),
                                 ),
                               ),
                             ],
                           ),
                         ),
-                        const SizedBox(height: 24),
+                        SizedBox(height: 24.h),
                         // Continue button
                         GestureDetector(
                           onTap: handleContinue,
                           child: Container(
                             width: double.infinity,
-                            padding: const EdgeInsets.symmetric(vertical: 18),
+                            padding: EdgeInsets.symmetric(vertical: 18.h),
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16),
+                              borderRadius: BorderRadius.circular(16.r),
                               gradient: const LinearGradient(
                                 colors: [
                                   Color(0xFF7B2CBF),
@@ -292,17 +299,17 @@ class _LoginScreenState extends State<LoginScreen> {
                                 BoxShadow(
                                   color:
                                       const Color(0xFF7B2CBF).withOpacity(0.6),
-                                  blurRadius: 15,
-                                  offset: const Offset(0, 5),
+                                  blurRadius: 15.r,
+                                  offset: Offset(0, 5.h),
                                 ),
                               ],
                             ),
-                            child: const Center(
+                            child: Center(
                               child: Text(
                                 "Continue",
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 18,
+                                  fontSize: 18.sp,
                                   fontWeight: FontWeight.w700,
                                   letterSpacing: 1,
                                 ),
@@ -314,15 +321,16 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
 
-                  const SizedBox(height: 30),
+                  SizedBox(height: 30.h),
 
                   // Secondary options
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text(
+                      Text(
                         "Already have an account? ",
-                        style: TextStyle(color: Color(0xFFA0A0C0)),
+                        style: TextStyle(
+                            color: const Color(0xFFA0A0C0), fontSize: 14.sp),
                       ),
                       GestureDetector(
                         onTap: () {
@@ -333,30 +341,32 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           );
                         },
-                        child: const Text(
+                        child: Text(
                           "Sign in",
                           style: TextStyle(
-                            color: Color(0xFF7B2CBF),
+                            color: const Color(0xFF7B2CBF),
                             fontWeight: FontWeight.bold,
                             decoration: TextDecoration.underline,
+                            fontSize: 14.sp,
                           ),
                         ),
                       ),
                     ],
                   ),
 
-                  const SizedBox(height: 30),
+                  SizedBox(height: 30.h),
 
                   Row(
                     children: [
                       Expanded(
                         child: Divider(color: Colors.white.withOpacity(0.1)),
                       ),
-                      const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 12),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 12.w),
                         child: Text(
                           "OR",
-                          style: TextStyle(color: Color(0xFF6A6A8A)),
+                          style: TextStyle(
+                              color: const Color(0xFF6A6A8A), fontSize: 14.sp),
                         ),
                       ),
                       Expanded(
@@ -365,7 +375,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ],
                   ),
 
-                  const SizedBox(height: 30),
+                  SizedBox(height: 30.h),
 
                   // Guest button
                   GestureDetector(
@@ -379,60 +389,65 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                     child: Container(
                       width: double.infinity,
-                      padding: const EdgeInsets.symmetric(vertical: 18),
+                      padding: EdgeInsets.symmetric(vertical: 18.h),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(16),
+                        borderRadius: BorderRadius.circular(16.r),
                         color: const Color(0xFF1E1E3A),
                         border: Border.all(
                           color: const Color(0xFF3A3A6A),
-                          width: 1,
+                          width: 1.w,
                         ),
                       ),
-                      child: const Center(
+                      child: Center(
                         child: Text(
                           "Continue as Guest",
                           style: TextStyle(
-                            color: Color(0xFF8A8AC4),
+                            color: const Color(0xFF8A8AC4),
                             fontWeight: FontWeight.w600,
-                            fontSize: 16,
+                            fontSize: 16.sp,
                           ),
                         ),
                       ),
                     ),
                   ),
 
-                  const SizedBox(height: 40),
+                  SizedBox(height: 40.h),
 
                   // Footer
-                  const Text(
+                  Text(
                     "By continuing, you agree to our",
-                    style: TextStyle(color: Color(0xFF6A6A8A)),
+                    style: TextStyle(
+                        color: const Color(0xFF6A6A8A), fontSize: 12.sp),
                   ),
-                  const SizedBox(height: 8),
+                  SizedBox(height: 8.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
+                    children: [
                       Text(
                         "Terms & Conditions",
                         style: TextStyle(
-                          color: Color(0xFF8A8AC4),
+                          color: const Color(0xFF8A8AC4),
                           fontWeight: FontWeight.w600,
+                          fontSize: 12.sp,
                         ),
                       ),
-                      SizedBox(width: 12),
-                      Text("•", style: TextStyle(color: Color(0xFF6A6A8A))),
-                      SizedBox(width: 12),
+                      SizedBox(width: 12.w),
+                      Text("•",
+                          style: TextStyle(
+                              color: const Color(0xFF6A6A8A), fontSize: 12.sp)),
+                      SizedBox(width: 12.w),
                       Text(
                         "Privacy Policy",
                         style: TextStyle(
-                          color: Color(0xFF8A8AC4),
+                          color: const Color(0xFF8A8AC4),
                           fontWeight: FontWeight.w600,
+                          fontSize: 12.sp,
                         ),
                       ),
                     ],
                   ),
 
-                  const SizedBox(height: 40),
+                  SizedBox(height: 40.h),
                 ],
               ),
             ),
@@ -451,8 +466,9 @@ class _DotsPainter extends CustomPainter {
       ..color = const Color(0xFF2A2A4A).withOpacity(0.3)
       ..style = PaintingStyle.fill;
 
-    const double spacing = 30;
-    final double dotRadius = 1.5;
+    final double spacing =
+        size.width * 0.07; // Responsive spacing based on screen width
+    final double dotRadius = size.width * 0.0035; // Responsive dot radius
 
     for (double x = 0; x < size.width; x += spacing) {
       for (double y = 0; y < size.height; y += spacing) {
