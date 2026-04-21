@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:may_laud/user_login/password_field.dart';
-import 'unregistered.dart';
+//import 'unregistered.dart';
+import 'package:may_laud/user_login/screens/login_screens/verification_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
