@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:may_laud/intro_screens/intro_page1.dart';
 import 'package:may_laud/intro_screens/intro_page2.dart';
 import 'package:may_laud/intro_screens/intro_page3.dart';
@@ -53,10 +54,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       child: onLastPage
           ? Padding(
               key: const ValueKey('get_started'),
-              padding: const EdgeInsets.all(20),
+              padding: EdgeInsets.all(20.r),
               child: SizedBox(
                 width: double.infinity,
-                height: 55,
+                height: 55.h,
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -70,14 +71,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     backgroundColor: Colors.white,
                     foregroundColor: Colors.deepPurple,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
+                      borderRadius: BorderRadius.circular(30.r),
                     ),
                     elevation: 3,
                   ),
-                  child: const Text(
+                  child: Text(
                     'Get Started',
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 16.sp,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -86,7 +87,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             )
           : Padding(
               key: const ValueKey('navigation'),
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 20.w),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -94,11 +95,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     onTap: () {
                       _controller.jumpToPage(2);
                     },
-                    child: const Text(
+                    child: Text(
                       'Skip',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 16,
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -109,10 +110,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     effect: JumpingDotEffect(
                       activeDotColor: Colors.white,
                       dotColor: Colors.white54,
-                      dotHeight: 20,
-                      dotWidth: 20,
-                      spacing: 15,
-                      verticalOffset: 20,
+                      dotHeight: 20.h,
+                      dotWidth: 20.w,
+                      spacing: 15.w,
+                      verticalOffset: 20.h,
                     ),
                   ),
                   GestureDetector(
@@ -122,11 +123,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         curve: Curves.easeInOut,
                       );
                     },
-                    child: const Text(
+                    child: Text(
                       'Next',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 16,
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -161,19 +162,19 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           Align(
             alignment: const Alignment(0, 1),
             child: Container(
-              height: 100,
+              height: 100.h,
               width: double.infinity,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 color: Colors.deepPurple,
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30),
-                  topRight: Radius.circular(30),
+                  topLeft: Radius.circular(30.r),
+                  topRight: Radius.circular(30.r),
                 ),
                 boxShadow: [
                   BoxShadow(
-                    blurRadius: 10,
+                    blurRadius: 10.r,
                     color: Colors.black26,
-                    offset: Offset(0, -2),
+                    offset: Offset(0, -2.h),
                   ),
                 ],
               ),

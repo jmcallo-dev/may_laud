@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:may_laud/onboarding_screen.dart';
 
 class OpeningScreen extends StatefulWidget {
@@ -107,30 +108,30 @@ class _OpeningScreenState extends State<OpeningScreen>
                             scale: _scaleAnim,
                             child: Image.asset(
                               'assets/images/openinglogo.png',
-                              width: 140,
-                              height: 140,
+                              width: 140.w,
+                              height: 140.h,
                               fit: BoxFit.contain,
                             ),
                           ),
 
-                          const SizedBox(height: 20),
+                          SizedBox(height: 20.h),
 
                           // TEXT
-                          const Text(
+                          Text(
                             'MILAUD',
                             style: TextStyle(
                               fontFamily: 'Montserrat',
                               color: Colors.white,
-                              fontSize: 45,
+                              fontSize: 45.sp,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          const SizedBox(height: 10),
-                          const Text(
+                          SizedBox(height: 10.h),
+                          Text(
                             'MILAOR, CAMARINES SUR',
                             style: TextStyle(
                               color: Color(0xCCEADDFF),
-                              fontSize: 12,
+                              fontSize: 12.sp,
                               letterSpacing: 2,
                             ),
                           ),
@@ -139,25 +140,24 @@ class _OpeningScreenState extends State<OpeningScreen>
 
                       //LOADING SECTION
                       Padding(
-                        padding: const EdgeInsets.only(bottom: 30),
+                        padding: EdgeInsets.only(bottom: 30.h),
                         child: Column(
                           children: [
                             Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 40),
+                              padding: EdgeInsets.symmetric(horizontal: 40.w),
                               child: LinearProgressIndicator(
                                 value: progress,
-                                minHeight: 4,
+                                minHeight: 4.h,
                                 backgroundColor: Colors.white24,
                                 valueColor: const AlwaysStoppedAnimation<Color>(
                                     Colors.white),
                               ),
                             ),
-                            const SizedBox(height: 12),
+                            SizedBox(height: 12.h),
                             Text(
                               loadingText,
-                              style: const TextStyle(
-                                fontSize: 12,
+                              style: TextStyle(
+                                fontSize: 12.sp,
                                 letterSpacing: 2,
                                 color: Colors.white70,
                               ),

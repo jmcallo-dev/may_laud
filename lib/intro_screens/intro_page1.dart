@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Intro page 1
 class IntroPage1 extends StatelessWidget {
@@ -11,13 +12,13 @@ class IntroPage1 extends StatelessWidget {
         children: [
           //TOP IMAGE (BACKGROUND STYLE)
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.6,
+            height: 0.6.sh, // 60% of screen height
             width: double.infinity,
             child: Stack(
               children: [
                 Positioned.fill(
                   child: Image.asset(
-                    'assets/images/IntroPage/intro_page1.png',
+                    'assets/images/intro_page/intro_page1.png',
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -28,22 +29,22 @@ class IntroPage1 extends StatelessWidget {
           // BOTTOM CONTENT
           Expanded(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
+              padding: EdgeInsets.symmetric(horizontal: 24.w),
               child: Column(
                 children: [
-                  const SizedBox(height: 20),
-                  const Text(
+                  SizedBox(height: 20.h),
+                  Text(
                     "Welcome to Milaud",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontFamily: 'Montserrat',
-                      fontSize: 30,
+                      fontSize: 30.sp,
                       fontWeight: FontWeight.bold,
                       color: Color(0xFF4C229C),
                     ),
                   ),
-                  const SizedBox(height: 30),
-                  const Text(
+                  SizedBox(height: 30.h),
+                  Text(
                     "Serving all 20 barangays of Milaor\n"
                     "connects every resident to faster services,\n"
                     "clearer communication, and a community\n"
@@ -51,12 +52,12 @@ class IntroPage1 extends StatelessWidget {
                     "all in one app.",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 16.sp,
                       color: Colors.black,
                       height: 1.5,
                     ),
                   ),
-                  const SizedBox(height: 40),
+                  SizedBox(height: 40.h),
                 ],
               ),
             ),

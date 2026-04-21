@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Intro page 2
 class IntroPage2 extends StatelessWidget {
@@ -13,13 +14,13 @@ class IntroPage2 extends StatelessWidget {
         children: [
           //TOP IMAGE (same as IntroPage1)
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.62,
+            height: 0.62.sh, // 62% of screen height
             width: double.infinity,
             child: Stack(
               children: [
                 Positioned.fill(
                   child: Image.asset(
-                    'assets/images/IntroPage/intropage2.png',
+                    'assets/images/intro_page/intro_page2.png',
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -30,39 +31,39 @@ class IntroPage2 extends StatelessWidget {
           // 🔹 BOTTOM CONTENT
           Expanded(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
+              padding: EdgeInsets.symmetric(horizontal: 24.w),
               child: Column(
                 children: [
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20.h),
 
                   /// TITLE
-                  const Text(
+                  Text(
                     "Stay Connected\nwith Your Barangay",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontFamily: 'Montserrat',
-                      fontSize: 30,
+                      fontSize: 30.sp,
                       fontWeight: FontWeight.bold,
                       color: Color(0xFF4C229C),
                     ),
                   ),
 
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20.h),
 
                   /// DESCRIPTION
-                  const Text(
+                  Text(
                     "Get real-time announcements,\n"
                     "emergency alerts, local events\n"
                     "and important barangay updates\n"
                     "anytime anywhere.",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 16.sp,
                       height: 1.5,
                       color: Colors.black,
                     ),
                   ),
-                  const SizedBox(height: 40),
+                  SizedBox(height: 40.h),
                 ],
               ),
             ),
