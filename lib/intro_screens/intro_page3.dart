@@ -18,7 +18,7 @@ class IntroPage3 extends StatelessWidget {
                 // IMAGE
                 Positioned.fill(
                   child: Image.asset(
-                    "assets/images/intro_page3.png",
+                    "assets/images/IntroPage/intro_page3.png",
                     fit: BoxFit.cover,
                   ),
                 ),
