@@ -117,9 +117,9 @@ class _OpeningScreenState extends State<OpeningScreen>
 
                           // TEXT
                           const Text(
-                            'MAY-LAUD',
+                            'MILAUD',
                             style: TextStyle(
-                              fontFamily: 'PlusJakartaSans',
+                              fontFamily: 'Montserrat',
                               color: Colors.white,
                               fontSize: 45,
                               fontWeight: FontWeight.bold,
