@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../user_login/login_number.dart';
 
 // Intro page 3
 class IntroPage3 extends StatelessWidget {
@@ -26,7 +25,7 @@ class IntroPage3 extends StatelessWidget {
                           child: Stack(
                             children: [
                               Image.asset(
-                                "assets/images/onboard3.png",
+                                "assets/images/intro_page3.png",
                                 height: 280,
                                 width: double.infinity,
                                 fit: BoxFit.cover,
@@ -142,62 +141,62 @@ class IntroPage3 extends StatelessWidget {
                           ),
                         ),
 
-                        const SizedBox(height: 30),
+                        const SizedBox(height: 20),
                         // Removed dot row
                         const SizedBox(height: 20),
 
-                        const Text("Step 3 of 3"),
+                        // const Text("Step 3 of 3"),
 
                         const SizedBox(height: 30),
 
-                        /// START BUTTON
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              PageRouteBuilder(
-                                transitionDuration:
-                                    const Duration(milliseconds: 500),
-                                pageBuilder: (_, __, ___) =>
-                                    const LoginScreen(),
-                                transitionsBuilder: (_, animation, __, child) {
-                                  return FadeTransition(
-                                    opacity: animation,
-                                    child: child,
-                                  );
-                                },
-                              ),
-                            );
-                          },
-                          child: Container(
-                            width: double.infinity,
-                            padding: const EdgeInsets.symmetric(vertical: 18),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30),
-                              gradient: const LinearGradient(
-                                colors: [
-                                  Color(0xFF4C229C),
-                                  Color(0xFF643EB5),
-                                ],
-                              ),
-                            ),
-                            child: const Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "Start Exploring",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                SizedBox(width: 10),
-                                Icon(Icons.arrow_forward, color: Colors.white),
-                              ],
-                            ),
-                          ),
-                        ),
+                        // /// START BUTTON
+                        // GestureDetector(
+                        //   onTap: () {
+                        //     Navigator.push(
+                        //       context,
+                        //       PageRouteBuilder(
+                        //         transitionDuration:
+                        //             const Duration(milliseconds: 500),
+                        //         pageBuilder: (_, __, ___) =>
+                        //             const LoginScreen(),
+                        //         transitionsBuilder: (_, animation, __, child) {
+                        //           return FadeTransition(
+                        //             opacity: animation,
+                        //             child: child,
+                        //           );
+                        //         },
+                        //       ),
+                        //     );
+                        //   },
+                        //   child: Container(
+                        //     width: 100,
+                        //     padding: EdgeInsets.symmetric(vertical: 18),
+                        //     decoration: BoxDecoration(
+                        //       borderRadius: BorderRadius.circular(30),
+                        //       gradient: const LinearGradient(
+                        //         colors: [
+                        //           Color(0xFF4C229C),
+                        //           Color(0xFF643EB5),
+                        //         ],
+                        //       ),
+                        //     ),
+                        //     child: Row(
+                        //       mainAxisAlignment: MainAxisAlignment.center,
+                        //       children: [
+                        //         Text(
+                        //           "  Done",
+                        //           style: TextStyle(
+                        //             color: Colors.white,
+                        //             fontSize: 16,
+                        //             fontWeight: FontWeight.bold,
+                        //           ),
+                        //         ),
+                        //         SizedBox(width: 10),
+                        //         //Icon(Icons.arrow_forward, color: Colors.white),
+                        //       ],
+                        //     ),
+                        //   ),
+                        // ),
 
                         const SizedBox(height: 30),
                       ],

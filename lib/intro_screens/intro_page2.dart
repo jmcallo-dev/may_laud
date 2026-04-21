@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'intro_page3.dart';
+//import 'intro_page3.dart';
 
 // Intro page 2
 class IntroPage2 extends StatelessWidget {
@@ -30,8 +30,8 @@ class IntroPage2 extends StatelessWidget {
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(30),
                                 image: const DecorationImage(
-                                  image:
-                                      AssetImage("assets/images/onboard2.png"),
+                                  image: AssetImage(
+                                      "assets/images/intro_page2.png"),
                                   fit: BoxFit.cover,
                                 ),
                                 boxShadow: [
@@ -159,31 +159,31 @@ class IntroPage2 extends StatelessWidget {
                 ),
 
                 /// BOTTOM NAV
-                Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text("Step 2 of 3"),
-                      InkWell(
-                        borderRadius: BorderRadius.circular(50),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => const IntroPage3(),
-                            ),
-                          );
-                        },
-                        child: const CircleAvatar(
-                          backgroundColor: Color(0xFF4C229C),
-                          child: Icon(Icons.arrow_forward, color: Colors.white),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                // Container(
+                //   padding:
+                //       const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //     children: [
+                //       const Text("Step 2 of 3"),
+                //       InkWell(
+                //         borderRadius: BorderRadius.circular(50),
+                //         onTap: () {
+                //           Navigator.push(
+                //             context,
+                //             MaterialPageRoute(
+                //               builder: (_) => const IntroPage3(),
+                //             ),
+                //           );
+                //         },
+                //         child: const CircleAvatar(
+                //           backgroundColor: Color(0xFF4C229C),
+                //           child: Icon(Icons.arrow_forward, color: Colors.white),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
               ],
             ),
           ),

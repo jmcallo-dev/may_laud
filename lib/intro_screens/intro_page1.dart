@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'intro_page2.dart';
 
 // Intro page 1
 class IntroPage1 extends StatelessWidget {
@@ -28,7 +27,7 @@ class IntroPage1 extends StatelessWidget {
                             ClipRRect(
                               borderRadius: BorderRadius.circular(32),
                               child: Image.asset(
-                                'assets/images/onboard1.png',
+                                'assets/images/intro_page1.png',
                                 height: 320,
                                 width: double.infinity,
                                 fit: BoxFit.cover,
@@ -112,7 +111,7 @@ class IntroPage1 extends StatelessWidget {
                         const SizedBox(height: 16),
 
                         const Text(
-                          "Serving all 20 barangays of Milaor—May-Laud connects every resident to faster services, clearer communication, and a community that listens and responds.",
+                          "Serving all 20 barangays of Milaor (May-Laud) connects every resident to faster services, clearer communication, and a community that listens and responds.",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 16,
@@ -165,30 +164,30 @@ class IntroPage1 extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text("Step 1 of 3"),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => const IntroPage2(),
-                            ),
-                          );
-                        },
-                        child: const CircleAvatar(
-                          backgroundColor: Color(0xFF4C229C),
-                          child: Icon(Icons.arrow_forward, color: Colors.white),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                // Container(
+                //   padding:
+                //       const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //     children: [
+                //       const Text("Step 1 of 3"),
+                //       GestureDetector(
+                //         onTap: () {
+                //           Navigator.push(
+                //             context,
+                //             MaterialPageRoute(
+                //               builder: (_) => const IntroPage2(),
+                //             ),
+                //           );
+                //         },
+                //         child: const CircleAvatar(
+                //           backgroundColor: Color(0xFF4C229C),
+                //           child: Icon(Icons.arrow_forward, color: Colors.white),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
               ],
             ),
           ),
