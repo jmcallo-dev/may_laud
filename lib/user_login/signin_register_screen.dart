@@ -56,7 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
             children: [
               SizedBox(height: 60.h),
 
-              // App Logo/Icon with glow effect
+              // Logo
               Container(
                 width: 120.w,
                 height: 120.h,
@@ -79,13 +79,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
                 child: Center(
-                  child: Image.asset(
-                    'assets/images/milaud_logo.png',
-                    width: 60.w,
-                    height: 60.h,
-                    fit: BoxFit.contain,
-                  ),
-                ),
+                    child: Image.asset(
+                  'assets/images/milaud_logo.png',
+                  width: 60.w,
+                  height: 60.h,
+                  fit: BoxFit.contain,
+                )),
               ),
 
               SizedBox(height: 40.h),
