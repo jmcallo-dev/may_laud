@@ -48,7 +48,7 @@ class IntroPage3 extends StatelessWidget {
                     ),
                   ),
 
-                  SizedBox(height: 16.h),
+                  SizedBox(height: 20.h),
 
                   /// DESCRIPTION
                   Text(
@@ -65,7 +65,7 @@ class IntroPage3 extends StatelessWidget {
                     ),
                   ),
 
-                  SizedBox(height: 12.h),
+                  SizedBox(height: 10.h),
 
                   /// SLOGAN
                   Text(

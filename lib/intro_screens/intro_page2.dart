@@ -63,7 +63,6 @@ class IntroPage2 extends StatelessWidget {
                       color: Colors.black,
                     ),
                   ),
-                  SizedBox(height: 40.h),
                 ],
               ),
             ),

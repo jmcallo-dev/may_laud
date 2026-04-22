@@ -32,7 +32,9 @@ class _WelcomeBackScreenState extends State<WelcomeBackScreen> {
               const SizedBox(height: 20),
 
               const Text(
-                "Welcome Back",
+                "Welcome to\n"
+                "Milaud",
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 36,
                   fontWeight: FontWeight.bold,

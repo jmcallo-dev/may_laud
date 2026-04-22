@@ -43,7 +43,7 @@ class IntroPage1 extends StatelessWidget {
                       color: Color(0xFF4C229C),
                     ),
                   ),
-                  SizedBox(height: 30.h),
+                  SizedBox(height: 20.h),
                   Text(
                     "Serving all 20 barangays of Milaor\n"
                     "connects every resident to faster services,\n"
@@ -57,7 +57,6 @@ class IntroPage1 extends StatelessWidget {
                       height: 1.5,
                     ),
                   ),
-                  SizedBox(height: 40.h),
                 ],
               ),
             ),
