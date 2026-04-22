@@ -1,6 +1,6 @@
 # may_laud
 
-A new Flutter project.
+A new Flutter project For Milaor Camarines Participatory Governnce Information System.
 
 ## Getting Started
 
