@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:may_laud/user_login/welcome_back.dart';
+import 'package:may_laud/user_login/signin_screen.dart';
 
 class SuccessScreen extends StatelessWidget {
   const SuccessScreen({super.key});

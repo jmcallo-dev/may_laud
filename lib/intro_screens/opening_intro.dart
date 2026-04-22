@@ -107,7 +107,7 @@ class _OpeningScreenState extends State<OpeningScreen>
                           ScaleTransition(
                             scale: _scaleAnim,
                             child: Image.asset(
-                              'assets/images/milaud_logo.png',
+                              'assets/images/milaudlogo.png',
                               width: 140.w,
                               height: 140.h,
                               fit: BoxFit.contain,
