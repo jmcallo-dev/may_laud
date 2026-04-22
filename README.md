@@ -1,6 +1,8 @@
 # may_laud
 
-A new Flutter project For Milaor Camarines Participatory Governnce Information System.
+A new Flutter project For Milaor Camarines Participatory Governance Information System.
+MOBILE APPLICATION(Residents) 
+WEB-BASED(MUNICIPALITY OF MILAOR)
 
 ## Getting Started
 
