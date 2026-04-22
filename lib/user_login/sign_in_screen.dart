@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:may_laud/user_login/forgot_password.dart';
-import 'package:may_laud/user_login/register.dart';
+import 'package:may_laud/user_login/forgot_password_screen.dart';
+import 'package:may_laud/user_login/registration_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'home.dart';
 
@@ -120,15 +120,15 @@ class _WelcomeBackScreenState extends State<WelcomeBackScreen> {
                     ),
                     child: Image.asset(
                       'assets/images/milaudlogo.png',
-                      height: 80.h,
+                      height: 100.h,
                     ),
                   ),
 
-                  SizedBox(height: 20.h),
+                  SizedBox(height: 15.h),
 
                   /// TITLE
                   Text(
-                    "Sign In",
+                    "Welcome to MiLaud",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 32.sp,
@@ -148,8 +148,7 @@ class _WelcomeBackScreenState extends State<WelcomeBackScreen> {
                       color: const Color(0xFF6E6A75),
                     ),
                   ),
-
-                  SizedBox(height: 40.h),
+                  SizedBox(height: 30.h),
 
                   /// FORM CARD
                   Container(
@@ -172,30 +171,76 @@ class _WelcomeBackScreenState extends State<WelcomeBackScreen> {
                         Text(
                           "Phone Number",
                           style: TextStyle(
-                            fontSize: 18.sp,
                             fontWeight: FontWeight.w600,
-                            color: const Color(0xFF4C229C),
+                            color: const Color(0xFF555555),
+                            fontSize: 14.sp,
+                            letterSpacing: 0.5,
                           ),
                         ),
-
+                        SizedBox(height: 6.h),
+                        Text(
+                          "We'll use this for verification and important updates",
+                          style: TextStyle(
+                            fontSize: 12.sp,
+                            color: const Color(0xFF888888),
+                          ),
+                        ),
                         SizedBox(height: 10.h),
-
-                        _buildInputContainer(
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20.w, vertical: 4.h),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(16.r),
+                            border: Border.all(
+                              color: const Color(0xFFDDDDDD),
+                              width: 1.5,
+                            ),
+                          ),
                           child: Row(
                             children: [
-                              const Icon(Icons.phone_android,
-                                  color: Colors.grey),
-                              SizedBox(width: 10.w),
+                              Container(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 12.w, vertical: 10.h),
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFFF5F5F5),
+                                  borderRadius: BorderRadius.circular(12.r),
+                                ),
+                                child: Row(
+                                  children: [
+                                    Text("🇵🇭",
+                                        style: TextStyle(fontSize: 16.sp)),
+                                    SizedBox(width: 4.w),
+                                    Text(
+                                      "+63",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                          color: Color(0xFF333333)),
+                                    ),
+                                    SizedBox(width: 4.w),
+                                    Icon(Icons.keyboard_arrow_down,
+                                        size: 18.sp, color: Color(0xFF666666)),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(width: 12.w),
+                              Container(
+                                  width: 1.w,
+                                  height: 24.h,
+                                  color: Colors.grey.shade300),
+                              SizedBox(width: 12.w),
                               Expanded(
                                 child: TextField(
                                   controller: phoneController,
-                                  keyboardType: TextInputType.number,
+                                  keyboardType: TextInputType.phone,
                                   inputFormatters: [
                                     FilteringTextInputFormatter.digitsOnly,
                                   ],
-                                  decoration: const InputDecoration(
-                                    hintText: "Enter phone number",
+                                  decoration: InputDecoration(
+                                    hintText: "Enter Phone number",
                                     border: InputBorder.none,
+                                    hintStyle:
+                                        TextStyle(color: Color(0xFFAAAAAA)),
                                   ),
                                 ),
                               ),
@@ -209,26 +254,45 @@ class _WelcomeBackScreenState extends State<WelcomeBackScreen> {
                         Text(
                           "Password",
                           style: TextStyle(
-                            fontSize: 18.sp,
                             fontWeight: FontWeight.w600,
-                            color: const Color(0xFF4C229C),
+                            color: const Color(0xFF555555),
+                            fontSize: 14.sp,
+                            letterSpacing: 0.5,
                           ),
                         ),
-
+                        SizedBox(height: 6.h),
+                        Text(
+                          "Enter your password to access your account",
+                          style: TextStyle(
+                            fontSize: 12.sp,
+                            color: const Color(0xFF888888),
+                          ),
+                        ),
                         SizedBox(height: 10.h),
-
-                        _buildInputContainer(
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20.w, vertical: 4.h),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(16.r),
+                            border: Border.all(
+                              color: const Color(0xFFDDDDDD),
+                              width: 1.5,
+                            ),
+                          ),
                           child: Row(
                             children: [
                               const Icon(Icons.lock_outline,
-                                  color: Colors.grey),
-                              SizedBox(width: 10.w),
+                                  color: Color(0xFF666666)),
+                              SizedBox(width: 12.w),
                               Expanded(
                                 child: TextField(
                                   obscureText: obscure,
-                                  decoration: const InputDecoration(
-                                    hintText: "••••••••",
+                                  decoration: InputDecoration(
+                                    hintText: "Enter your password",
                                     border: InputBorder.none,
+                                    hintStyle: TextStyle(
+                                        color: const Color(0xFFAAAAAA)),
                                   ),
                                 ),
                               ),
@@ -237,12 +301,10 @@ class _WelcomeBackScreenState extends State<WelcomeBackScreen> {
                                   obscure
                                       ? Icons.visibility_off
                                       : Icons.visibility,
+                                  color: const Color(0xFF666666),
                                 ),
-                                onPressed: () {
-                                  setState(() {
-                                    obscure = !obscure;
-                                  });
-                                },
+                                onPressed: () =>
+                                    setState(() => obscure = !obscure),
                               ),
                             ],
                           ),
@@ -296,7 +358,7 @@ class _WelcomeBackScreenState extends State<WelcomeBackScreen> {
 
                         /// SIGN IN BUTTON
                         _buildPrimaryButton(
-                          text: "Sign In →",
+                          text: "Sign in",
                           onTap: () {
                             Navigator.push(
                               context,
@@ -345,7 +407,7 @@ class _WelcomeBackScreenState extends State<WelcomeBackScreen> {
 
                         /// GUEST BUTTON
                         _buildSecondaryButton(
-                          text: "Continue as Guest",
+                          text: "Continue as Resident",
                           onTap: () {
                             Navigator.push(
                               context,
@@ -366,17 +428,6 @@ class _WelcomeBackScreenState extends State<WelcomeBackScreen> {
           ),
         ],
       ),
-    );
-  }
-
-  Widget _buildInputContainer({required Widget child}) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(30.r),
-      ),
-      child: child,
     );
   }
 

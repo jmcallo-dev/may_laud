@@ -52,10 +52,8 @@ class IntroPage2 extends StatelessWidget {
 
                   /// DESCRIPTION
                   Text(
-                    "Get real-time announcements,\n"
-                    "emergency alerts, local events\n"
-                    "and important barangay updates\n"
-                    "anytime anywhere.",
+                    "Get real-time announcements emergency alerts,\n"
+                    "local events and important barangay updates anytime anywhere with milaud.\n",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 16.sp,

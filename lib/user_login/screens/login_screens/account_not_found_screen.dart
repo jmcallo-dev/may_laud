@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:may_laud/user_login/welcome_signin_screen.dart';
-import 'package:may_laud/user_login/register.dart';
+import 'package:may_laud/user_login/registration_screen.dart';
 
 // This screen is shown when a user tries to log in with a phone number that is not registered in the system.
 class AccountNotFoundScreen extends StatelessWidget {

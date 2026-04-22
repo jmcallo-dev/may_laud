@@ -4,18 +4,19 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'verified_success_screen.dart';
+import 'create_new_password_screen.dart';
 
-class VerificationScreen extends StatefulWidget {
-  const VerificationScreen({super.key});
+class OtpVerificationScreen extends StatefulWidget {
+  const OtpVerificationScreen({super.key});
 
   @override
-  State<VerificationScreen> createState() => _VerificationScreenState();
+  State<OtpVerificationScreen> createState() => _OtpVerificationScreenState();
 }
 
-class _VerificationScreenState extends State<VerificationScreen> {
+class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
   final List<TextEditingController> controllers =
       List.generate(6, (_) => TextEditingController());
+
   final List<FocusNode> focusNodes = List.generate(6, (_) => FocusNode());
 
   int secondsRemaining = 59;
@@ -25,7 +26,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
   void initState() {
     super.initState();
     startTimer();
-    // Auto-focus first OTP box
+
     Future.delayed(const Duration(milliseconds: 300), () {
       if (focusNodes.isNotEmpty) {
         focusNodes[0].requestFocus();
@@ -67,18 +68,6 @@ class _VerificationScreenState extends State<VerificationScreen> {
         ),
       );
     }
-  }
-
-  @override
-  void dispose() {
-    timer?.cancel();
-    for (var c in controllers) {
-      c.dispose();
-    }
-    for (var f in focusNodes) {
-      f.dispose();
-    }
-    super.dispose();
   }
 
   Widget otpBox(int index) {
@@ -129,26 +118,38 @@ class _VerificationScreenState extends State<VerificationScreen> {
   }
 
   @override
+  void dispose() {
+    timer?.cancel();
+    for (var c in controllers) {
+      c.dispose();
+    }
+    for (var f in focusNodes) {
+      f.dispose();
+    }
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          /// TOP LEFT SOFT CIRCLE
+          /// TOP LEFT SOFT CIRCLE (same as verified screen)
           Positioned(
             top: -120.h,
             left: -120.w,
             child: Container(
               width: 280.w,
               height: 280.w,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: Color(0xFFEDE7F6),
+                color: const Color(0xFFF3E5F5).withOpacity(0.6),
               ),
             ),
           ),
 
-          /// TOP RIGHT LIGHT GLOW
+          /// TOP RIGHT LIGHT GLOW (from verification screen)
           Positioned(
             top: 100.h,
             right: -60.w,
@@ -167,7 +168,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
             ),
           ),
 
-          /// BOTTOM RIGHT GLOW
+          /// BOTTOM RIGHT GLOW (from verification screen)
           Positioned(
             bottom: 180.h,
             right: -80.w,
@@ -186,7 +187,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
             ),
           ),
 
-          /// BOTTOM WAVES
+          /// BOTTOM WAVES (from verification screen)
           Align(
             alignment: Alignment.bottomCenter,
             child: SizedBox(
@@ -205,7 +206,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                 children: [
                   SizedBox(height: 16.h),
 
-                  /// Back + Title
+                  /// Back + Title (centered like verification screen)
                   Stack(
                     alignment: Alignment.center,
                     children: [
@@ -218,11 +219,11 @@ class _VerificationScreenState extends State<VerificationScreen> {
                         ),
                       ),
                       Text(
-                        "Verification",
+                        "Reset Password",
                         style: TextStyle(
                           fontSize: 20.sp,
                           fontWeight: FontWeight.w600,
-                          color: Color(0xFF6A4FB6),
+                          color: const Color(0xFF6A4FB6),
                         ),
                       ),
                     ],
@@ -230,11 +231,28 @@ class _VerificationScreenState extends State<VerificationScreen> {
 
                   SizedBox(height: 48.h),
 
-                  /// Icon
-                  Icon(
-                    Icons.lock_open_outlined,
-                    size: 80.w,
-                    color: const Color(0xFF6A4FB6).withAlpha(230),
+                  /// Icon (lock with gradient circle)
+                  Container(
+                    width: 100.w,
+                    height: 100.w,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      gradient: const LinearGradient(
+                        colors: [Color(0xFF4C229C), Color(0xFF643EB5)],
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: const Color(0xFF643EB5).withOpacity(0.4),
+                          blurRadius: 20,
+                          offset: const Offset(0, 8),
+                        )
+                      ],
+                    ),
+                    child: Icon(
+                      Icons.lock_open_outlined,
+                      size: 50.sp,
+                      color: Colors.white,
+                    ),
                   ),
 
                   SizedBox(height: 32.h),
@@ -245,7 +263,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                     style: TextStyle(
                       fontSize: 28.sp,
                       fontWeight: FontWeight.w700,
-                      color: Color(0xFF333333),
+                      color: const Color(0xFF333333),
                     ),
                   ),
 
@@ -258,7 +276,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 16.sp,
-                      color: Color(0xFF666666),
+                      color: const Color(0xFF666666),
                       height: 1.5,
                     ),
                   ),
@@ -276,45 +294,63 @@ class _VerificationScreenState extends State<VerificationScreen> {
 
                   SizedBox(height: 40.h),
 
-                  // Verify Button
+                  /// Verify Button
                   SizedBox(
                     width: double.infinity,
                     height: 56.h,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF6A4FB6),
-                        foregroundColor: Colors.white,
+                        padding: EdgeInsets.zero,
+                        backgroundColor: Colors.transparent,
+                        shadowColor: Colors.transparent,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16.r),
+                          borderRadius: BorderRadius.circular(40.r),
                         ),
                         elevation: 0,
-                        shadowColor: Colors.transparent,
                       ),
                       onPressed: () {
                         String code = controllers.map((e) => e.text).join();
 
                         if (code.length == 6) {
-                          Navigator.pushReplacement(
+                          Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) => const VerifiedSuccessScreen(),
+                              builder: (_) => const CreateNewPasswordScreen(),
                             ),
                           );
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
                               content:
-                                  Text("Please enter complete 6‑digit code"),
+                                  Text("Please enter complete 6-digit code"),
                             ),
                           );
                         }
                       },
-                      child: Text(
-                        "Verify",
-                        style: TextStyle(
-                          fontSize: 18.sp,
-                          fontWeight: FontWeight.w700,
-                          color: Colors.white,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(40.r),
+                          gradient: const LinearGradient(
+                            colors: [Color(0xFF4C229C), Color(0xFF643EB5)],
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: const Color(0xFF643EB5),
+                              blurRadius: 12,
+                              offset: const Offset(0, 6),
+                            )
+                          ],
+                        ),
+                        child: Container(
+                          alignment: Alignment.center,
+                          child: Text(
+                            "Verify & Continue",
+                            style: TextStyle(
+                              fontSize: 18.sp,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.white,
+                            ),
+                          ),
                         ),
                       ),
                     ),
@@ -322,7 +358,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
 
                   SizedBox(height: 24.h),
 
-                  // Resend Row
+                  /// Resend Row
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -365,7 +401,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
 
                   const Spacer(),
 
-                  // Security note
+                  /// Security note
                   Center(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -398,6 +434,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
   }
 }
 
+/// Custom wave painter (copied from verification_screen.dart)
 class MilaudWavePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {

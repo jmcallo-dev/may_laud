@@ -37,7 +37,7 @@ class IntroPage3 extends StatelessWidget {
 
                   /// TITLE
                   Text(
-                    "Your Smart\n"
+                    "Your Milaud\n"
                     "Community Assistant",
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -47,15 +47,13 @@ class IntroPage3 extends StatelessWidget {
                       color: Color(0xFF4C229C),
                     ),
                   ),
-
                   SizedBox(height: 20.h),
 
                   /// DESCRIPTION
                   Text(
                     "Access chatbot support, local information,\n"
-                    "public services, and comunity help\n"
-                    "with just a tap - design to make\n"
-                    "life in Milaor Easier.",
+                    "public services, and comunity help with just\n"
+                    "a tap - design to make life in Milaor Easier.\n",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 14.sp,
@@ -65,7 +63,7 @@ class IntroPage3 extends StatelessWidget {
                     ),
                   ),
 
-                  SizedBox(height: 10.h),
+                  SizedBox(height: 6.h),
 
                   /// SLOGAN
                   Text(
@@ -77,8 +75,6 @@ class IntroPage3 extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-
-                  SizedBox(height: 20.h),
                 ],
               ),
             ),

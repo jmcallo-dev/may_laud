@@ -1,8 +1,8 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:may_laud/user_login/signin_screen.dart';
-import 'package:may_laud/user_login/register.dart';
+import 'package:may_laud/user_login/sign_in_screen.dart';
+import 'package:may_laud/user_login/registration_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /// ---------------- WELCOME SCREEN ---------------- ///
@@ -80,7 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(height: 30.h),
+                  SizedBox(height: 25.h),
 
                   /// Logo
                   Container(
@@ -95,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
 
-                  SizedBox(height: 40.h),
+                  SizedBox(height: 35.h),
 
                   /// Welcome Title
                   Text(
@@ -201,7 +201,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
 
-                  SizedBox(height: 210.h),
+                  SizedBox(height: 230.h),
 
                   /// Footer
                   Text(
@@ -245,7 +245,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ],
                   ),
 
-                  SizedBox(height: 30.h),
+                  SizedBox(height: 20.h),
 
                   Text(
                     "© 2026 MiLaud Municipality. All rights reserved.",
