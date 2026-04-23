@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:may_laud/user_login/screens/login_screens/verification_screen.dart';
+import 'package:may_laud/screens/otp_verification/registration_otp_screen.dart';
 
 class PasswordField extends StatefulWidget {
   final Function(String) onChanged;

@@ -2,10 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:may_laud/user_login/forgot_password_screen.dart';
-import 'package:may_laud/user_login/registration_screen.dart';
+import 'package:may_laud/screens/password/forgot_password_screen.dart';
+import 'package:may_laud/screens/sign_up/registration_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'home.dart';
+import '../home/home.dart';
 
 class WelcomeBackScreen extends StatefulWidget {
   const WelcomeBackScreen({super.key});

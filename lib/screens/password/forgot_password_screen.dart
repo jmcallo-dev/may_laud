@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:may_laud/user_login/forgot_password_otp_screen.dart';
+import 'package:may_laud/screens/otp_verification/forgot_password_otp_screen.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
   const ForgotPasswordScreen({super.key});

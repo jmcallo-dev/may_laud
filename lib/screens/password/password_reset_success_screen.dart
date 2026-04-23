@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:may_laud/user_login/sign_in_screen.dart';
+import 'package:may_laud/screens/sign_in/sign_in_screen.dart';
 
 class SuccessScreen extends StatelessWidget {
   const SuccessScreen({super.key});

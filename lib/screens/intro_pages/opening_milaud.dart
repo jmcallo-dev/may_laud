@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:may_laud/onboarding_screen.dart';
+import 'package:may_laud/screens/intro_pages/intro_page_design.dart';
 
 class OpeningScreen extends StatefulWidget {
   const OpeningScreen({super.key});
