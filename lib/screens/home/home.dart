@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
           );
         },
         child: SvgPicture.asset(
-          'assets/images/chatbot.svg',
+          'assets/images/svg/chatbot.svg',
           width: 24,
           height: 24,
           colorFilter: const ColorFilter.mode(

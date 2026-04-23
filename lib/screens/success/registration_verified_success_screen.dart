@@ -88,7 +88,7 @@ class VerifiedSuccessScreen extends StatelessWidget {
 
                   /// SUBTEXT
                   Text(
-                    "Your phone number has been successfully verified.\nYou can now proceed to use Milaud services.",
+                    "Your phone number has been successfully verified.\nYou can now proceed to use milaud apps.",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 15.sp,
