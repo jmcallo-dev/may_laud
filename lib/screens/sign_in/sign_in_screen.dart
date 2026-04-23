@@ -363,7 +363,7 @@ class _WelcomeBackScreenState extends State<WelcomeBackScreen> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (_) => const HomeDashboard(),
+                                builder: (_) => const HomeScreen(),
                               ),
                             );
                           },
@@ -412,7 +412,7 @@ class _WelcomeBackScreenState extends State<WelcomeBackScreen> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (_) => const HomeDashboard(),
+                                builder: (_) => const HomeScreen(),
                               ),
                             );
                           },

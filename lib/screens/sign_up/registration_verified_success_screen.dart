@@ -105,7 +105,7 @@ class VerifiedSuccessScreen extends StatelessWidget {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (_) => const HomeDashboard(),
+                          builder: (_) => const HomeScreen(),
                         ),
                       );
                     },
