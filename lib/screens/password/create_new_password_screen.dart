@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'password_reset_success_screen.dart';
+import '../success/password_reset_success_screen.dart';
 
 /// ---------------- NEW PASSWORD CREATION----------------
 class CreateNewPasswordScreen extends StatefulWidget {

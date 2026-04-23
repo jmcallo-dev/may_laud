@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:may_laud/screens/intro_pages/intro_page1.dart';
 import 'package:may_laud/screens/intro_pages/intro_page2.dart';
 import 'package:may_laud/screens/intro_pages/intro_page3.dart';
-import 'package:may_laud/screens/sign_in/welcome_signin_screen.dart';
+import 'package:may_laud/screens/signin__signup_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 void main() {

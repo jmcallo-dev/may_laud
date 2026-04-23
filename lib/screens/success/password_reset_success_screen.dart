@@ -34,8 +34,8 @@ class SuccessScreen extends StatelessWidget {
                   children: [
                     /// ICON CARD
                     Container(
-                      width: 140.w,
-                      height: 140.w,
+                      width: 120.w,
+                      height: 120.w,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         gradient: const LinearGradient(
@@ -77,7 +77,7 @@ class SuccessScreen extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 20.w),
                       child: Text(
-                        "Your password has been updated successfully. You can now use your new password to log in.",
+                        "Your password has been updated successfully. You can now use your new password to sign in.",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 15.sp,
@@ -128,7 +128,7 @@ class SuccessScreen extends StatelessWidget {
                             );
                           },
                           child: Text(
-                            "Log in Now",
+                            "Sign in Now",
                             style: TextStyle(
                               fontSize: 17.sp,
                               fontWeight: FontWeight.w600,
@@ -143,7 +143,7 @@ class SuccessScreen extends StatelessWidget {
 
                     /// SMALL FOOTNOTE
                     Text(
-                      "You will be redirected to the login screen.",
+                      "You will be redirected to the Sign in screen.",
                       style: TextStyle(
                         fontSize: 13.sp,
                         color: const Color(0xFF9A9A9A),
